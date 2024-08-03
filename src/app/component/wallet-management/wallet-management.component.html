@@ -1,0 +1,9 @@
+<!-- wallet-management.component.html -->
+<div class="wallets">
+    <h2>Wallets</h2>
+    <ul>
+        <li *ngFor="let wallet of wallets">
+            {{ wallet.name }} - {{ wallet.balance }}
+        </li>
+    </ul>
+</div>
