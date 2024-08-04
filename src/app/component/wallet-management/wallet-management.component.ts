@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WalletService } from '../../s/wallet.service';
 
 @Component({
@@ -9,8 +9,11 @@ import { WalletService } from '../../s/wallet.service';
   templateUrl: './wallet-management.component.html',
   styleUrl: './wallet-management.component.css'
 })
-export class WalletManagementComponent {
-  wallets = [];
+export class WalletManagementComponent implements OnInit {
+  wallets: { name: string; balance: number; }[] = [
+    { name: 'Main Wallet', balance: 1000 },
+    { name: 'Savings Wallet', balance: 5000 }
+  ];
 
   constructor(private walletService: WalletService) {}
 

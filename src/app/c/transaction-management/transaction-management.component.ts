@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../../s/transaction.service';
 
 @Component({
@@ -9,9 +9,11 @@ import { TransactionService } from '../../s/transaction.service';
   templateUrl: './transaction-management.component.html',
   styleUrl: './transaction-management.component.css'
 })
-export class TransactionManagementComponent {
-  transactions =[];
-
+export class TransactionManagementComponent implements OnInit {
+  transactions: { description: string; amount: number; }[] = [
+    { description: 'Grocery', amount: 50 },
+    { description: 'Rent', amount: 500 }
+  ];
   constructor (private transactionService: TransactionService) {}
 
    ngOnInit() {
